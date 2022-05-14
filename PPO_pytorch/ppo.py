@@ -216,9 +216,14 @@ class PPO:
 		for param, val in hyperparameters.items():
 			exec('self.' + param + ' = ' + str(val))
 
+		# Sets the seed if specified
+		if self.seed != None:
+			# Check if our seed is valid first
+			assert(type(self.seed) == int)
 
-		torch.manual_seed(self.seed)
-		print(f"Successfully set seed to {self.seed}")
+			# Set the seed 
+			torch.manual_seed(self.seed)
+			print(f"Successfully set seed to {self.seed}")
 
 	def _log_summary(self):# taken from the tutorial
 		# Calculate logging values. I use a few python shortcuts to calculate each value

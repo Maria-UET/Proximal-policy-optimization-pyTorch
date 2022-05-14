@@ -5,7 +5,6 @@ import torch
 
 from ppo import PPO
 from network import FeedForwardNN
-from eval_policy import eval_policy
 
 def get_args():
 
